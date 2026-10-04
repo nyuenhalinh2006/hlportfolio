@@ -1,0 +1,2681 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nguyễn Hà Linh (阮荷泠) • Khu Phố Bikini Bottom Portfolio</title>
+  
+  <!-- Google Fonts: Nunito & Be Vietnam Pro for 100% Vietnamese Font Perfection -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&family=Nunito:ital,wght@0,600;0,700;0,800;0,900;1,700;1,800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --sb-yellow: #FED836;
+      --sb-yellow-dark: #E5BE00;
+      --sb-blue: #0284C7;
+      --sb-blue-dark: #0369A1;
+      --sb-blue-light: #38BDF8;
+      --sb-ocean-sky: #7DD3FC;
+      --sb-ocean-depth: #075985;
+      --sb-pink: #FDA4AF;
+      --sb-pink-dark: #FB7185;
+      --sb-coral: #F43F5E;
+      --sb-green: #34D399;
+      --sb-green-dark: #059669;
+      --sb-wood: #D97706;
+      --sb-wood-dark: #92400E;
+      --sb-krab-red: #EF4444;
+      --sb-sand: #FDE68A;
+      --sb-sand-path: #FCD34D;
+      --border-dark: #1E293B;
+      --cartoon-shadow: 4px 4px 0px var(--border-dark);
+      --cartoon-shadow-lg: 6px 6px 0px var(--border-dark);
+      --cartoon-shadow-xl: 8px 8px 0px var(--border-dark);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Be Vietnam Pro', sans-serif;
+      background: linear-gradient(180deg, #38BDF8 0%, #0284C7 30%, #0369A1 65%, #0C4A6E 100%);
+      color: #1E293B;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, .comic-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      letter-spacing: -0.2px;
+    }
+
+    /* Ambient Bubble Animation */
+    .bubble-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+      overflow: hidden;
+    }
+
+    .bubble {
+      position: absolute;
+      bottom: -70px;
+      background: radial-gradient(circle at 30% 35%, rgba(255, 255, 255, 0.85) 0%, rgba(255, 255, 255, 0.25) 55%, rgba(255, 255, 255, 0.45) 100%);
+      border-radius: 50%;
+      box-shadow: inset 0 2px 4px rgba(255, 255, 255, 0.9), 0 0 8px rgba(56, 189, 248, 0.4);
+      animation: floatUpward 14s infinite ease-in;
+      cursor: pointer;
+      pointer-events: auto;
+      transition: transform 0.15s ease;
+    }
+
+    .bubble:hover {
+      transform: scale(1.2);
+    }
+
+    @keyframes floatUpward {
+      0% {
+        transform: translateY(0) translateX(0) scale(0.9);
+        opacity: 0.75;
+      }
+      50% {
+        transform: translateY(-50vh) translateX(30px) scale(1.05);
+      }
+      100% {
+        transform: translateY(-115vh) translateX(-25px) scale(1);
+        opacity: 0;
+      }
+    }
+
+    /* SpongeBob Flower Clouds */
+    .sky-flowers {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .flower-cloud {
+      position: absolute;
+      opacity: 0.3;
+      animation: flowerDrift 28s infinite alternate ease-in-out;
+    }
+
+    @keyframes flowerDrift {
+      0% { transform: translate(0, 0) rotate(0deg); }
+      100% { transform: translate(50px, -25px) rotate(12deg); }
+    }
+
+    /* Ambient Swimming Fish */
+    .swimming-fish {
+      position: fixed;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.4;
+      animation: swimAcross 25s infinite linear;
+    }
+
+    @keyframes swimAcross {
+      0% {
+        transform: translateX(-150px) translateY(0);
+      }
+      50% {
+        transform: translateX(50vw) translateY(40px);
+      }
+      100% {
+        transform: translateX(110vw) translateY(-20px);
+      }
+    }
+
+    /* Top Control Bar */
+    header.town-navbar {
+      position: sticky;
+      top: 15px;
+      z-index: 100;
+      padding: 0 20px;
+      margin-bottom: 20px;
+    }
+
+    .navbar-container {
+      max-width: 1240px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 4px solid var(--border-dark);
+      border-radius: 40px;
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      box-shadow: var(--cartoon-shadow-lg);
+      flex-wrap: wrap;
+    }
+
+    .nav-resident-info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--border-dark);
+    }
+
+    .nav-avatar-mini {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 3px solid var(--border-dark);
+      overflow: hidden;
+      background: var(--sb-yellow);
+      box-shadow: 2px 2px 0 var(--border-dark);
+      flex-shrink: 0;
+    }
+
+    .nav-avatar-mini img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .nav-title-text h1 {
+      font-size: 1.15rem;
+      color: #0F172A;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-title-text p {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #0369A1;
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* Audio Controls */
+    .audio-player-box {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: #FEF3C7;
+      border: 2px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 5px 12px;
+      box-shadow: 2px 2px 0 var(--border-dark);
+    }
+
+    .btn-audio-toggle {
+      background: var(--sb-yellow);
+      border: 2px solid var(--border-dark);
+      border-radius: 14px;
+      padding: 4px 10px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 1px 1px 0 var(--border-dark);
+      transition: all 0.1s ease;
+    }
+
+    .btn-audio-toggle:active {
+      transform: translate(1px, 1px);
+      box-shadow: none;
+    }
+
+    .volume-slider-wrap {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .volume-slider {
+      width: 65px;
+      accent-color: #D97706;
+      cursor: pointer;
+    }
+
+    .btn-bubble-toggle {
+      background: #E0F2FE;
+      border: 2px solid var(--border-dark);
+      border-radius: 16px;
+      padding: 6px 12px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      box-shadow: 2px 2px 0 var(--border-dark);
+      transition: all 0.15s ease;
+    }
+
+    .btn-bubble-toggle:hover {
+      background: #BAE6FD;
+      transform: translateY(-1px);
+    }
+
+    /* Town Scene View Container */
+    #townView {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 10px 20px 80px;
+      position: relative;
+      z-index: 10;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    /* Welcome Town Signboard */
+    .town-signboard-banner {
+      background: #FFFFFF;
+      border: 4px solid var(--border-dark);
+      border-radius: 26px;
+      padding: 24px 30px;
+      box-shadow: var(--cartoon-shadow-lg);
+      margin-bottom: 35px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .town-signboard-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: repeating-linear-gradient(90deg, #FED836, #FED836 20px, #38BDF8 20px, #38BDF8 40px, #FB7185 40px, #FB7185 60px);
+    }
+
+    .town-sign-left h2 {
+      font-size: 1.85rem;
+      color: #0F172A;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .town-sign-badge {
+      background: var(--sb-yellow);
+      border: 2px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 3px 12px;
+      font-size: 0.95rem;
+      color: #78350F;
+      box-shadow: 2px 2px 0 var(--border-dark);
+    }
+
+    .town-sign-desc {
+      font-size: 1.05rem;
+      color: #475569;
+      font-weight: 500;
+    }
+
+    .town-indicator {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #FEF08A;
+      border: 2px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 8px 18px;
+      font-weight: 800;
+      color: #92400E;
+      box-shadow: 2px 2px 0 var(--border-dark);
+      animation: pulseAlert 2.5s infinite ease-in-out;
+      white-space: nowrap;
+    }
+
+    @keyframes pulseAlert {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+    }
+
+    /* Conch Street Sandy Pathway & Neighborhood Grid */
+    .conch-street-container {
+      position: relative;
+      padding: 20px 0;
+    }
+
+    .conch-street-signpost {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    .wooden-street-sign {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: #F59E0B;
+      border: 4px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 8px 24px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      font-size: 1.25rem;
+      color: #FFFFFF;
+      text-shadow: 2px 2px 0 var(--border-dark);
+      box-shadow: var(--cartoon-shadow-lg);
+      transform: rotate(-1deg);
+    }
+
+    /* Neighborhood Buildings Grid (6 locations) */
+    .neighborhood-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 30px;
+      position: relative;
+      z-index: 10;
+    }
+
+    /* Building Interactive Card */
+    .building-item {
+      background: #FFFFFF;
+      border: 4px solid var(--border-dark);
+      border-radius: 28px;
+      padding: 24px 20px 20px;
+      box-shadow: var(--cartoon-shadow-lg);
+      cursor: pointer;
+      position: relative;
+      transition: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      user-select: none;
+      overflow: hidden;
+    }
+
+    .building-item:hover {
+      transform: translateY(-10px) scale(1.02);
+      box-shadow: var(--cartoon-shadow-xl);
+      border-color: #0F172A;
+    }
+
+    .building-item:active {
+      transform: translateY(-2px) scale(0.99);
+      box-shadow: var(--cartoon-shadow);
+    }
+
+    /* Top Floating Tag on each house */
+    .building-tag {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      background: #F1F5F9;
+      border: 2px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 3px 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #334155;
+      box-shadow: 2px 2px 0 var(--border-dark);
+    }
+
+    .building-badge-enter {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: var(--sb-yellow);
+      border: 2px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 3px 10px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      color: #78350F;
+      box-shadow: 2px 2px 0 var(--border-dark);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: transform 0.2s ease;
+    }
+
+    .building-item:hover .building-badge-enter {
+      transform: scale(1.1);
+      background: #FDE047;
+    }
+
+    /* Vector Building Visual Container */
+    .building-graphic-box {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 25px;
+      margin-bottom: 15px;
+      position: relative;
+    }
+
+    .building-graphic-box svg {
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(4px 4px 0px rgba(0,0,0,0.15));
+      transition: transform 0.3s ease;
+    }
+
+    .building-item:hover .building-graphic-box svg {
+      transform: scale(1.06);
+    }
+
+    /* Building Labels & Content Preview */
+    .building-meta {
+      width: 100%;
+      border-top: 3px dashed #E2E8F0;
+      padding-top: 14px;
+    }
+
+    .building-title {
+      font-size: 1.35rem;
+      color: #0F172A;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .building-category-badge {
+      display: inline-block;
+      font-size: 0.85rem;
+      font-weight: 800;
+      padding: 3px 12px;
+      border-radius: 16px;
+      border: 2px solid var(--border-dark);
+      margin-bottom: 8px;
+      box-shadow: 2px 2px 0 var(--border-dark);
+    }
+
+    .badge-sb { background: #FEF08A; color: #854D0E; }
+    .badge-squid { background: #A7F3D0; color: #065F46; }
+    .badge-patrick { background: #FECDD3; color: #9F1239; }
+    .badge-krab { background: #FED7AA; color: #9A3412; }
+    .badge-jelly { background: #E9D5FF; color: #6B21A8; }
+    .badge-post { background: #BAE6FD; color: #0369A1; }
+
+    .building-snippet {
+      font-size: 0.92rem;
+      color: #475569;
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+
+    .building-action-btn {
+      width: 100%;
+      background: var(--sb-yellow);
+      border: 3px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 9px 16px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #78350F;
+      box-shadow: var(--cartoon-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .building-item:hover .building-action-btn {
+      background: #FACC15;
+      transform: translateY(-2px);
+      box-shadow: 4px 4px 0 var(--border-dark);
+    }
+
+    /* Seabed Flora Decorations at bottom of town */
+    .seabed-decorations {
+      display: flex;
+      justify-content: space-around;
+      align-items: flex-end;
+      height: 90px;
+      margin-top: 40px;
+      pointer-events: none;
+    }
+
+    .kelp-stem {
+      animation: kelpSway 4s infinite ease-in-out alternate;
+      transform-origin: bottom center;
+    }
+
+    @keyframes kelpSway {
+      0% { transform: rotate(-5deg); }
+      100% { transform: rotate(8deg); }
+    }
+
+    /* ========================================================
+       INTERIOR / DETAIL VIEW (MODAL / SCREEN)
+       ======================================================== */
+    #interiorView {
+      display: none; /* Hidden by default until house clicked */
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 10px 20px 80px;
+      position: relative;
+      z-index: 10;
+      animation: zoomInHouse 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.2) forwards;
+    }
+
+    @keyframes zoomInHouse {
+      0% {
+        opacity: 0;
+        transform: scale(0.92) translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Interior Navigation Bar */
+    .interior-nav-bar {
+      background: #FFFFFF;
+      border: 4px solid var(--border-dark);
+      border-radius: 30px;
+      padding: 14px 24px;
+      box-shadow: var(--cartoon-shadow-lg);
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn-back-to-town {
+      background: #FEF08A;
+      border: 3px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 8px 20px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #78350F;
+      cursor: pointer;
+      box-shadow: var(--cartoon-shadow);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-back-to-town:hover {
+      background: var(--sb-yellow);
+      transform: translate(-2px, -2px);
+      box-shadow: 6px 6px 0 var(--border-dark);
+    }
+
+    .btn-back-to-town:active {
+      transform: translate(2px, 2px);
+      box-shadow: 1px 1px 0 var(--border-dark);
+    }
+
+    /* Fast Switcher Tabs */
+    .interior-fast-tabs {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .tab-btn {
+      background: #F1F5F9;
+      border: 2px solid var(--border-dark);
+      border-radius: 14px;
+      padding: 6px 12px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: #334155;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 var(--border-dark);
+      transition: all 0.15s ease;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .tab-btn:hover {
+      background: #E2E8F0;
+      transform: translateY(-1px);
+    }
+
+    .tab-btn.active-tab {
+      background: var(--sb-yellow);
+      color: #78350F;
+      transform: translateY(-2px);
+      box-shadow: 3px 3px 0 var(--border-dark);
+    }
+
+    /* Interior Content Panel */
+    .interior-panel {
+      background: #FFFFFF;
+      border: 5px solid var(--border-dark);
+      border-radius: 35px;
+      padding: 40px;
+      box-shadow: var(--cartoon-shadow-xl);
+      position: relative;
+    }
+
+    /* Interior Header */
+    .interior-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 3px dashed #CBD5E1;
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 15px;
+    }
+
+    .interior-header-left {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .interior-header-icon {
+      font-size: 2.8rem;
+      width: 70px;
+      height: 70px;
+      background: var(--sb-sand);
+      border: 3px solid var(--border-dark);
+      border-radius: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 3px 3px 0 var(--border-dark);
+      flex-shrink: 0;
+    }
+
+    .interior-header-titles h2 {
+      font-size: 2rem;
+      color: #0F172A;
+      line-height: 1.2;
+    }
+
+    .interior-header-titles p {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #0284C7;
+    }
+
+    /* ========================================================
+       SECTION 1: PINEAPPLE HOUSE (ABOUT ME & AVATAR ID)
+       ======================================================== */
+    .pineapple-grid {
+      display: grid;
+      grid-template-columns: 320px 1fr;
+      gap: 35px;
+      align-items: start;
+    }
+
+    /* SpongeBob Picture Frame for User's Avatar */
+    .sb-photo-frame-wrap {
+      background: #FEF3C7;
+      border: 4px solid var(--border-dark);
+      border-radius: 28px;
+      padding: 18px;
+      box-shadow: var(--cartoon-shadow-lg);
+      text-align: center;
+      position: relative;
+    }
+
+    .sb-photo-frame-wrap::before {
+      content: '🍍 NHÀ DỨA 124 CONCH ST';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--sb-yellow);
+      border: 2px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 3px 14px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 0.75rem;
+      color: #78350F;
+      box-shadow: 2px 2px 0 var(--border-dark);
+      white-space: nowrap;
+    }
+
+    .sb-avatar-container {
+      width: 100%;
+      height: 330px;
+      border: 4px solid var(--border-dark);
+      border-radius: 20px;
+      overflow: hidden;
+      background: #BAE6FD;
+      position: relative;
+      box-shadow: inset 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 8px;
+      margin-bottom: 12px;
+    }
+
+    .sb-avatar-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .sb-avatar-container:hover img {
+      transform: scale(1.03);
+    }
+
+    .avatar-caption-box h3 {
+      font-size: 1.3rem;
+      color: #0F172A;
+      margin-bottom: 2px;
+    }
+
+    .avatar-caption-box p {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #D97706;
+    }
+
+    /* Pineapple About Content */
+    .pineapple-bio-box {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .bio-quote-bubble {
+      background: #F0F9FF;
+      border: 3px solid var(--border-dark);
+      border-radius: 24px;
+      padding: 20px 24px;
+      box-shadow: var(--cartoon-shadow);
+      position: relative;
+    }
+
+    .bio-quote-bubble h4 {
+      font-size: 1.25rem;
+      color: #0369A1;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .bio-quote-bubble p {
+      font-size: 0.98rem;
+      color: #334155;
+      line-height: 1.6;
+    }
+
+    /* Resident ID Details Table */
+    .resident-passport-card {
+      background: #FFFFFF;
+      border: 3px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--cartoon-shadow);
+    }
+
+    .passport-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px dashed #E2E8F0;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+    }
+
+    .passport-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .pass-item {
+      background: #F8FAFC;
+      border: 1.5px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 8px 12px;
+    }
+
+    .pass-label {
+      font-size: 0.75rem;
+      font-weight: 800;
+      color: #64748B;
+      text-transform: uppercase;
+    }
+
+    .pass-val {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: #0F172A;
+    }
+
+    /* Krabby Patty Formula Inside Pineapple */
+    .patty-formula-inline {
+      background: #FEF3C7;
+      border: 3px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 18px;
+      box-shadow: var(--cartoon-shadow);
+      margin-top: 10px;
+    }
+
+    .formula-row {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .formula-pill {
+      background: #FFFFFF;
+      border: 2px solid var(--border-dark);
+      border-radius: 14px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .formula-num {
+      font-size: 1.4rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      color: #D97706;
+    }
+
+    .formula-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #1E293B;
+    }
+
+    /* ========================================================
+       SECTION 2: SQUIDWARD HOUSE (EDUCATION & EXPERIENCE)
+       ======================================================== */
+    .edu-exp-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    .moai-card {
+      background: #F8FAFC;
+      border: 3px solid var(--border-dark);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--cartoon-shadow);
+      position: relative;
+    }
+
+    .moai-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 12px;
+      border-bottom: 2px dashed #CBD5E1;
+      padding-bottom: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .moai-card-title h3 {
+      font-size: 1.35rem;
+      color: #0F172A;
+    }
+
+    .moai-card-title p {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0369A1;
+    }
+
+    .moai-time-pill {
+      background: #FFFFFF;
+      border: 2px solid var(--border-dark);
+      border-radius: 12px;
+      padding: 4px 12px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #475569;
+      box-shadow: 2px 2px 0 var(--border-dark);
+    }
+
+    .moai-bullet-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .moai-bullet-list li {
+      position: relative;
+      padding-left: 26px;
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    .moai-bullet-list li::before {
+      content: '🗿';
+      position: absolute;
+      left: 0;
+      top: -1px;
+      font-size: 0.9rem;
+    }
+
+    .badge-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 14px;
+    }
+
+    .skill-chip {
+      background: #E0F2FE;
+      border: 1.5px solid var(--border-dark);
+      border-radius: 10px;
+      padding: 2px 8px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #0369A1;
+    }
+
+    /* ========================================================
+       SECTION 3: PATRICK ROCK (SKILLS & POWERS)
+       ======================================================== */
+    .skills-section-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 22px;
+    }
+
+    .patrick-skill-box {
+      background: #FFF1F2;
+      border: 3px solid var(--border-dark);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--cartoon-shadow);
+    }
+
+    .patrick-skill-box h4 {
+      font-size: 1.2rem;
+      color: #9F1239;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .skill-metric-item {
+      margin-bottom: 15px;
+    }
+
+    .metric-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.9rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .metric-bar-bg {
+      height: 16px;
+      background: #FFFFFF;
+      border: 2px solid var(--border-dark);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .metric-bar-fill {
+      height: 100%;
+      border-radius: 6px;
+      transition: width 1s ease-in-out;
+    }
+
+    .fill-sb-yellow { background: var(--sb-yellow); }
+    .fill-sb-pink { background: var(--sb-pink-dark); }
+    .fill-sb-blue { background: var(--sb-blue-light); }
+    .fill-sb-green { background: var(--sb-green); }
+
+    /* ========================================================
+       SECTION 4: KRUSTY KRAB (PROJECTS & PRACTICAL WORK)
+       ======================================================== */
+    .krab-menu-board {
+      background: #FEF3C7;
+      border: 4px solid var(--border-dark);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--cartoon-shadow);
+      margin-bottom: 25px;
+      text-align: center;
+    }
+
+    .krab-menu-board h3 {
+      font-size: 1.45rem;
+      color: #92400E;
+    }
+
+    .project-cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 22px;
+    }
+
+    .project-order-card {
+      background: #FFFFFF;
+      border: 3px solid var(--border-dark);
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: var(--cartoon-shadow);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .project-order-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+
+    .order-icon {
+      width: 48px;
+      height: 48px;
+      background: #FEE2E2;
+      border: 2px solid var(--border-dark);
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+      box-shadow: 2px 2px 0 var(--border-dark);
+    }
+
+    .order-title h4 {
+      font-size: 1.15rem;
+      color: #0F172A;
+    }
+
+    .order-title p {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #EA580C;
+    }
+
+    .order-desc {
+      font-size: 0.92rem;
+      color: #475569;
+      line-height: 1.55;
+      margin-bottom: 12px;
+    }
+
+    /* ========================================================
+       SECTION 5: JELLYFISH FIELDS (ACHIEVEMENTS & HOBBIES)
+       ======================================================== */
+    .jelly-achieve-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-bottom: 30px;
+    }
+
+    .jelly-pill-card {
+      background: #FAF5FF;
+      border: 3px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--cartoon-shadow);
+      text-align: center;
+    }
+
+    .jelly-pill-icon {
+      font-size: 2.2rem;
+      margin-bottom: 6px;
+    }
+
+    .jelly-pill-num {
+      font-size: 1.8rem;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 900;
+      color: #7E22CE;
+    }
+
+    .jelly-pill-label {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #1E293B;
+    }
+
+    .jelly-pill-sub {
+      font-size: 0.8rem;
+      color: #6B7280;
+      margin-top: 4px;
+    }
+
+    .hobbies-band-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 15px;
+    }
+
+    .hobby-card-item {
+      background: #FFFFFF;
+      border: 2px solid var(--border-dark);
+      border-radius: 18px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: var(--cartoon-shadow);
+    }
+
+    .hobby-card-item h5 {
+      font-size: 1.05rem;
+      color: #0F172A;
+      margin: 6px 0 4px;
+    }
+
+    .hobby-card-item p {
+      font-size: 0.82rem;
+      color: #64748B;
+    }
+
+    /* ========================================================
+       SECTION 6: BIKINI POST OFFICE (CONTACT)
+       ======================================================== */
+    .post-office-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    .post-metadata-col {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .post-contact-bubble {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: #F0F9FF;
+      border: 2px solid var(--border-dark);
+      border-radius: 18px;
+      padding: 12px 18px;
+      box-shadow: 2px 2px 0 var(--border-dark);
+    }
+
+    .post-bubble-icon {
+      width: 44px;
+      height: 44px;
+      background: var(--sb-yellow);
+      border: 2px solid var(--border-dark);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+
+    .post-bottle-form {
+      background: #FEF3C7;
+      border: 3px solid var(--border-dark);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--cartoon-shadow);
+    }
+
+    .bottle-field {
+      margin-bottom: 12px;
+    }
+
+    .bottle-field label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 800;
+      color: #78350F;
+      margin-bottom: 4px;
+    }
+
+    .bottle-field input, .bottle-field textarea {
+      width: 100%;
+      padding: 9px 14px;
+      border: 2px solid var(--border-dark);
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      outline: none;
+      background: #FFFFFF;
+    }
+
+    .bottle-field input:focus, .bottle-field textarea:focus {
+      border-color: #0284C7;
+      box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.3);
+    }
+
+    .btn-send-bottle {
+      width: 100%;
+      background: var(--sb-yellow);
+      border: 3px solid var(--border-dark);
+      border-radius: 18px;
+      padding: 10px 18px;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: #78350F;
+      cursor: pointer;
+      box-shadow: var(--cartoon-shadow);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-send-bottle:hover {
+      background: #FACC15;
+      transform: translateY(-2px);
+      box-shadow: 5px 5px 0 var(--border-dark);
+    }
+
+    /* Footer */
+    footer.town-footer {
+      text-align: center;
+      padding: 40px 20px;
+      color: #BAE6FD;
+      font-weight: 700;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 10;
+    }
+
+    .footer-stamp {
+      display: inline-block;
+      background: #FFFFFF;
+      border: 2px solid var(--border-dark);
+      border-radius: 20px;
+      padding: 6px 18px;
+      color: var(--border-dark);
+      font-weight: 800;
+      box-shadow: 2px 2px 0 var(--border-dark);
+      margin-top: 10px;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .pineapple-grid {
+        grid-template-columns: 1fr;
+      }
+      .sb-avatar-container {
+        max-width: 260px;
+        margin: 8px auto 12px;
+      }
+      .post-office-grid {
+        grid-template-columns: 1fr;
+      }
+      .town-signboard-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SpongeBob Flower Clouds in Background -->
+  <div class="sky-flowers">
+    <svg class="flower-cloud" style="top: 20px; left: 6%; width: 140px; height: 140px;" viewBox="0 0 100 100">
+      <path fill="#F472B6" d="M50 35 C42 15 58 15 50 35 C30 25 35 45 50 40 C35 55 45 70 55 50 C65 68 80 50 60 42 C78 35 68 18 50 35 Z" />
+      <circle cx="53" cy="42" r="8" fill="#FDE047" />
+    </svg>
+    <svg class="flower-cloud" style="top: 140px; right: 8%; width: 180px; height: 180px; animation-duration: 24s;" viewBox="0 0 100 100">
+      <path fill="#60A5FA" d="M50 35 C42 15 58 15 50 35 C30 25 35 45 50 40 C35 55 45 70 55 50 C65 68 80 50 60 42 C78 35 68 18 50 35 Z" />
+      <circle cx="53" cy="42" r="9" fill="#FEF08A" />
+    </svg>
+    <svg class="flower-cloud" style="top: 480px; left: 4%; width: 130px; height: 130px; animation-duration: 32s;" viewBox="0 0 100 100">
+      <path fill="#34D399" d="M50 35 C42 15 58 15 50 35 C30 25 35 45 50 40 C35 55 45 70 55 50 C65 68 80 50 60 42 C78 35 68 18 50 35 Z" />
+      <circle cx="53" cy="42" r="7" fill="#F472B6" />
+    </svg>
+    <svg class="flower-cloud" style="top: 750px; right: 5%; width: 150px; height: 150px; animation-duration: 26s;" viewBox="0 0 100 100">
+      <path fill="#FBBF24" d="M50 35 C42 15 58 15 50 35 C30 25 35 45 50 40 C35 55 45 70 55 50 C65 68 80 50 60 42 C78 35 68 18 50 35 Z" />
+      <circle cx="53" cy="42" r="8" fill="#F43F5E" />
+    </svg>
+  </div>
+
+  <!-- Ambient Swimming Fish -->
+  <svg class="swimming-fish" style="top: 250px; width: 60px; height: 35px;" viewBox="0 0 60 35">
+    <path fill="#FACC15" d="M45 17.5 C40 10 25 5 10 17.5 C25 30 40 25 45 17.5 Z M45 17.5 L58 8 L55 17.5 L58 27 Z" />
+    <circle cx="18" cy="15" r="2.5" fill="#1E293B" />
+  </svg>
+  <svg class="swimming-fish" style="top: 550px; width: 50px; height: 30px; animation-duration: 32s; animation-delay: 5s;" viewBox="0 0 60 35">
+    <path fill="#FB7185" d="M45 17.5 C40 10 25 5 10 17.5 C25 30 40 25 45 17.5 Z M45 17.5 L58 8 L55 17.5 L58 27 Z" />
+    <circle cx="18" cy="15" r="2.5" fill="#1E293B" />
+  </svg>
+
+  <!-- Interactive Rising Bubble Layer -->
+  <div class="bubble-layer" id="bubbleLayer"></div>
+
+  <!-- Top Navigation & Media Bar -->
+  <header class="town-navbar">
+    <div class="navbar-container">
+      
+      <!-- Resident Profile Summary with Real Avatar -->
+      <a href="javascript:void(0)" onclick="openHouse('pineapple')" class="nav-resident-info" title="Nhấp để xem hồ sơ cá nhân">
+        <div class="nav-avatar-mini">
+          <img src="assets/images/avatar.jpg" alt="Ảnh thẻ Nguyễn Hà Linh" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'%23FED836\'/><text x=\'50\' y=\'65\' font-size=\'45\' text-anchor=\'middle\'>🧽</text></svg>'">
+        </div>
+        <div class="nav-title-text">
+          <h1>Nguyễn Hà Linh <span>阮荷泠</span></h1>
+          <p>🍍 Cư dân Bikini Bottom • FTU Tiếng Trung Thương Mại (GPA 3.51)</p>
+        </div>
+      </a>
+
+      <!-- Controls: Hawaiian Music, Volume, Sound FX -->
+      <div class="nav-actions">
+        <!-- Audio Player Controls -->
+        <div class="audio-player-box">
+          <button class="btn-audio-toggle" id="btnAudioToggle" onclick="toggleBackgroundMusic()" title="Bật/Tắt nhạc nền Hawaiian Bikini Bottom">
+            <span id="audioPlayIcon">▶️</span>
+            <span id="audioPlayText">Phát Nhạc</span>
+          </button>
+          <div class="volume-slider-wrap">
+            <span style="font-size: 0.8rem;">🔊</span>
+            <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.05" value="0.5" onchange="adjustVolume(this.value)" title="Điều chỉnh âm lượng">
+          </div>
+        </div>
+
+        <!-- Bubble Sound FX Toggle -->
+        <button class="btn-bubble-toggle" id="btnFxToggle" onclick="toggleSoundFx()" title="Bật/Tắt âm thanh bong bóng">
+          <span id="fxIcon">🫧</span>
+          <span id="fxText">Âm FX: BẬT</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ========================================================
+       MAIN SCENE: THE BIKINI BOTTOM TOWN STREET (OVERVIEW)
+       ======================================================== -->
+  <main id="townView">
+    
+    <!-- Welcome Signboard Banner -->
+    <div class="town-signboard-banner">
+      <div class="town-sign-left">
+        <h2>
+          <span>🌊</span> Chào mừng tới Khu Phố Bikini Bottom!
+          <span class="town-sign-badge">Conch Street & Surrounds</span>
+        </h2>
+        <p class="town-sign-desc">
+          Mỗi ngôi nhà là một khía cạnh trong hồ sơ của <strong>Nguyễn Hà Linh</strong>. Hãy nhấp vào một địa điểm để bước vào khám phá!
+        </p>
+      </div>
+      <div class="town-indicator">
+        <span>👇</span>
+        <span>Nhấp vào từng ngôi nhà để mở</span>
+      </div>
+    </div>
+
+    <!-- Street Signpost -->
+    <div class="conch-street-container">
+      <div class="conch-street-signpost">
+        <div class="wooden-street-sign">
+          <span>🐚</span>
+          <span>CONCH STREET & BIKINI BOTTOM ROAD</span>
+          <span>🪸</span>
+        </div>
+      </div>
+
+      <!-- The 6 Interactive Town Buildings -->
+      <div class="neighborhood-grid">
+
+        <!-- 1. SPONGEBOB PINEAPPLE HOUSE (ABOUT ME) -->
+        <div class="building-item" onclick="openHouse('pineapple')">
+          <span class="building-tag">124 Conch St</span>
+          <span class="building-badge-enter">Gõ Cửa 🚪</span>
+          
+          <div class="building-graphic-box">
+            <!-- Custom Vector Pineapple House -->
+            <svg viewBox="0 0 200 240">
+              <!-- Pineapple Leaves on top -->
+              <path d="M100 80 C80 30 50 20 40 10 C60 40 80 60 90 80 Z" fill="#059669" stroke="#1E293B" stroke-width="3" />
+              <path d="M100 80 C100 20 100 10 100 0 C100 20 105 50 105 80 Z" fill="#10B981" stroke="#1E293B" stroke-width="3" />
+              <path d="M100 80 C120 30 150 20 160 10 C140 40 120 60 110 80 Z" fill="#059669" stroke="#1E293B" stroke-width="3" />
+              <path d="M100 80 C70 45 40 50 25 45 C45 65 75 75 90 85 Z" fill="#34D399" stroke="#1E293B" stroke-width="3" />
+              <path d="M100 80 C130 45 160 50 175 45 C155 65 125 75 110 85 Z" fill="#34D399" stroke="#1E293B" stroke-width="3" />
+              
+              <!-- Chimney -->
+              <rect x="140" y="70" width="22" height="40" rx="4" fill="#94A3B8" stroke="#1E293B" stroke-width="3" />
+              <line x1="140" y1="85" x2="162" y2="85" stroke="#1E293B" stroke-width="2" />
+
+              <!-- Pineapple Body -->
+              <ellipse cx="100" cy="155" rx="65" ry="75" fill="#F97316" stroke="#1E293B" stroke-width="4" />
+              <ellipse cx="100" cy="155" rx="60" ry="70" fill="#FB923C" />
+
+              <!-- Diamond cross-hatch texture lines -->
+              <path d="M50 125 L150 185 M40 155 L140 215 M60 95 L160 155" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" />
+              <path d="M150 125 L50 185 M160 155 L60 215 M140 95 L40 155" stroke="#C2410C" stroke-width="2.5" stroke-linecap="round" />
+
+              <!-- Porthole Window Top -->
+              <circle cx="75" cy="130" r="15" fill="#0284C7" stroke="#64748B" stroke-width="5" />
+              <circle cx="75" cy="130" r="15" fill="none" stroke="#1E293B" stroke-width="3" />
+              <circle cx="71" cy="126" r="4" fill="#BAE6FD" />
+
+              <!-- Porthole Window Bottom -->
+              <circle cx="125" cy="165" r="13" fill="#0284C7" stroke="#64748B" stroke-width="4" />
+              <circle cx="125" cy="165" r="13" fill="none" stroke="#1E293B" stroke-width="3" />
+              <circle cx="122" cy="162" r="3" fill="#BAE6FD" />
+
+              <!-- Steel Door -->
+              <path d="M85 230 L85 185 C85 175 115 175 115 185 L115 230 Z" fill="#94A3B8" stroke="#1E293B" stroke-width="3" />
+              <circle cx="110" cy="205" r="3.5" fill="#FEF08A" stroke="#1E293B" stroke-width="1.5" />
+            </svg>
+          </div>
+
+          <div class="building-meta">
+            <h3 class="building-title">🍍 Nhà Dứa SpongeBob</h3>
+            <span class="building-category-badge badge-sb">Về Tôi & Phong Cách</span>
+            <p class="building-snippet">
+              Khám phá chân dung Hà Linh, tinh thần <em>"I'm Ready!"</em>, thẻ cư dân đại dương và công thức bí mật Krabby Patty.
+            </p>
+            <button class="building-action-btn">
+              <span>Bước Vào Nhà Dứa</span> ➔
+            </button>
+          </div>
+        </div>
+
+        <!-- 2. SQUIDWARD MOAI HOUSE (EDUCATION & EXPERIENCE) -->
+        <div class="building-item" onclick="openHouse('squidward')">
+          <span class="building-tag">122 Conch St</span>
+          <span class="building-badge-enter">Gõ Cửa 🚪</span>
+          
+          <div class="building-graphic-box">
+            <!-- Custom Vector Easter Island Moai Head -->
+            <svg viewBox="0 0 200 240">
+              <!-- Base Moai Head Structure -->
+              <path d="M60 230 L60 80 C60 45 140 45 140 80 L140 230 Z" fill="#475569" stroke="#1E293B" stroke-width="4" />
+              <path d="M65 225 L65 80 C65 50 135 50 135 80 L135 225 Z" fill="#64748B" />
+
+              <!-- Brow line -->
+              <rect x="52" y="72" width="96" height="18" rx="4" fill="#334155" stroke="#1E293B" stroke-width="3" />
+
+              <!-- Porthole Eyes -->
+              <circle cx="80" cy="115" r="14" fill="#0284C7" stroke="#475569" stroke-width="4" />
+              <circle cx="80" cy="115" r="14" fill="none" stroke="#1E293B" stroke-width="3" />
+              <circle cx="77" cy="112" r="3" fill="#BAE6FD" />
+
+              <circle cx="120" cy="115" r="14" fill="#0284C7" stroke="#475569" stroke-width="4" />
+              <circle cx="120" cy="115" r="14" fill="none" stroke="#1E293B" stroke-width="3" />
+              <circle cx="117" cy="112" r="3" fill="#BAE6FD" />
+
+              <!-- Prominent Stone Nose -->
+              <path d="M92 110 L108 110 L108 165 L92 165 Z" fill="#334155" stroke="#1E293B" stroke-width="3" />
+              <ellipse cx="100" cy="165" rx="14" ry="7" fill="#1E293B" />
+
+              <!-- Ears on side -->
+              <rect x="48" y="95" width="12" height="45" rx="5" fill="#334155" stroke="#1E293B" stroke-width="3" />
+              <rect x="140" y="95" width="12" height="45" rx="5" fill="#334155" stroke="#1E293B" stroke-width="3" />
+
+              <!-- Wooden Door at base -->
+              <path d="M86 230 L86 188 C86 180 114 180 114 188 L114 230 Z" fill="#92400E" stroke="#1E293B" stroke-width="3" />
+              <circle cx="108" cy="208" r="3" fill="#FEF08A" stroke="#1E293B" stroke-width="1.5" />
+            </svg>
+          </div>
+
+          <div class="building-meta">
+            <h3 class="building-title">🗿 Nhà Moai Squidward</h3>
+            <span class="building-category-badge badge-squid">Học Vấn & Kinh Nghiệm</span>
+            <p class="building-snippet">
+              Đại học Ngoại Thương FTU (GPA 3.51/4.0), Sourcing Intern tại Alpha Allin và Chứng chỉ XNK Lê Ánh.
+            </p>
+            <button class="building-action-btn">
+              <span>Khám Phá Hồ Sơ</span> ➔
+            </button>
+          </div>
+        </div>
+
+        <!-- 3. PATRICK ROCK (SKILLS & POWERS) -->
+        <div class="building-item" onclick="openHouse('patrick')">
+          <span class="building-tag">120 Conch St</span>
+          <span class="building-badge-enter">Gõ Cửa 🚪</span>
+          
+          <div class="building-graphic-box">
+            <!-- Custom Vector Patrick Rock House -->
+            <svg viewBox="0 0 200 240">
+              <!-- Bamboo Weather Vane on Top -->
+              <rect x="98" y="55" width="4" height="40" fill="#D97706" stroke="#1E293B" stroke-width="2" />
+              <path d="M80 60 L120 60 L115 52 L120 44 L80 44 L85 52 Z" fill="#FACC15" stroke="#1E293B" stroke-width="2.5" />
+              <circle cx="100" cy="52" r="4" fill="#EF4444" stroke="#1E293B" stroke-width="1.5" />
+
+              <!-- The Big Brown Rock -->
+              <path d="M30 220 C20 150 60 90 100 90 C140 90 180 150 170 220 Z" fill="#78350F" stroke="#1E293B" stroke-width="4" />
+              <path d="M35 215 C26 155 62 95 100 95 C138 95 174 155 165 215 Z" fill="#92400E" />
+
+              <!-- Rock shading / bump highlights -->
+              <ellipse cx="75" cy="135" rx="18" ry="10" fill="#B45309" opacity="0.6" />
+              <ellipse cx="125" cy="155" rx="22" ry="12" fill="#B45309" opacity="0.6" />
+              <ellipse cx="90" cy="180" rx="30" ry="14" fill="#B45309" opacity="0.5" />
+
+              <!-- Sandy Mound base -->
+              <ellipse cx="100" cy="225" rx="80" ry="12" fill="#FDE68A" stroke="#1E293B" stroke-width="3" />
+            </svg>
+          </div>
+
+          <div class="building-meta">
+            <h3 class="building-title">🪨 Nhà Đá Patrick</h3>
+            <span class="building-category-badge badge-patrick">Kỹ Năng & Ngôn Ngữ</span>
+            <p class="building-snippet">
+              Tiếng Trung HSK5 chuẩn thương mại, Tiếng Anh B2, kỹ năng tìm nguồn hàng 1688/Alibaba và Incoterms 2020.
+            </p>
+            <button class="building-action-btn">
+              <span>Xem Kho Kỹ Năng</span> ➔
+            </button>
+          </div>
+        </div>
+
+        <!-- 4. KRUSTY KRAB (PROJECTS & PRACTICAL WORK) -->
+        <div class="building-item" onclick="openHouse('krusty')">
+          <span class="building-tag">Bikini Center</span>
+          <span class="building-badge-enter">Vào Quán 🚪</span>
+          
+          <div class="building-graphic-box">
+            <!-- Custom Vector Krusty Krab Restaurant -->
+            <svg viewBox="0 0 200 240">
+              <!-- Clamshell Signpost on Pole -->
+              <rect x="35" y="30" width="6" height="80" fill="#92400E" stroke="#1E293B" stroke-width="2" />
+              <!-- Clamshell Signboard -->
+              <path d="M15 45 C15 25 35 15 50 30 C65 15 85 25 85 45 C80 65 50 65 15 45 Z" fill="#FEF08A" stroke="#1E293B" stroke-width="3" />
+              <text x="50" y="45" font-family="'Nunito', sans-serif" font-weight="900" font-size="9" text-anchor="middle" fill="#DC2626">KRUSTY</text>
+              <text x="50" y="55" font-family="'Nunito', sans-serif" font-weight="900" font-size="8" text-anchor="middle" fill="#92400E">KRAB</text>
+
+              <!-- Wooden Lobster-Trap Restaurant Building -->
+              <path d="M45 110 L175 110 L185 220 L35 220 Z" fill="#92400E" stroke="#1E293B" stroke-width="4" />
+              <path d="M50 115 L170 115 L180 215 L40 215 Z" fill="#B45309" />
+
+              <!-- Horizontal Wooden Planks -->
+              <line x1="46" y1="135" x2="174" y2="135" stroke="#1E293B" stroke-width="2" />
+              <line x1="43" y1="160" x2="177" y2="160" stroke="#1E293B" stroke-width="2" />
+              <line x1="40" y1="185" x2="180" y2="185" stroke="#1E293B" stroke-width="2" />
+
+              <!-- Large Glass Windows with Diamond Panes -->
+              <rect x="55" y="125" width="40" height="50" fill="#38BDF8" stroke="#1E293B" stroke-width="3" />
+              <line x1="75" y1="125" x2="75" y2="175" stroke="#1E293B" stroke-width="2" />
+              <line x1="55" y1="150" x2="95" y2="150" stroke="#1E293B" stroke-width="2" />
+
+              <rect x="125" y="125" width="40" height="50" fill="#38BDF8" stroke="#1E293B" stroke-width="3" />
+              <line x1="145" y1="125" x2="145" y2="175" stroke="#1E293B" stroke-width="2" />
+              <line x1="125" y1="150" x2="165" y2="150" stroke="#1E293B" stroke-width="2" />
+
+              <!-- Front Double Door with Ship Wheel motif -->
+              <rect x="98" y="165" width="24" height="55" fill="#EF4444" stroke="#1E293B" stroke-width="3" />
+              <circle cx="110" cy="185" r="7" fill="#FEF08A" stroke="#1E293B" stroke-width="2" />
+            </svg>
+          </div>
+
+          <div class="building-meta">
+            <h3 class="building-title">🦀 Nhà Hàng Krusty Krab</h3>
+            <span class="building-category-badge badge-krab">Dự Án & Thực Tế</span>
+            <p class="building-snippet">
+              Các dự án Sourcing hơn 100 NCC/tuần, giảng dạy tiếng Việt cho học viên TQ và hoạt động truyền thông.
+            </p>
+            <button class="building-action-btn">
+              <span>Xem Các Đơn Hàng / Dự Án</span> ➔
+            </button>
+          </div>
+        </div>
+
+        <!-- 5. JELLYFISH FIELDS (ACHIEVEMENTS & HOBBIES) -->
+        <div class="building-item" onclick="openHouse('jellyfish')">
+          <span class="building-tag">Bikini Suburbs</span>
+          <span class="building-badge-enter">Tham Quan 🪼</span>
+          
+          <div class="building-graphic-box">
+            <!-- Custom Vector Jellyfish Fields -->
+            <svg viewBox="0 0 200 240">
+              <!-- Rolling Hills in background -->
+              <path d="M10 220 Q60 160 110 200 Q150 150 190 220 Z" fill="#C084FC" stroke="#1E293B" stroke-width="3" />
+              <path d="M20 220 Q70 170 120 210 Q160 165 185 220 Z" fill="#D8B4FE" />
+
+              <!-- Coral Tree -->
+              <path d="M40 220 L40 180 C40 165 25 155 25 140 C25 130 45 130 45 145 C45 160 55 170 55 180 L55 220 Z" fill="#F43F5E" stroke="#1E293B" stroke-width="2.5" />
+
+              <!-- Floating Jellyfish 1 (Large Pink) -->
+              <path d="M90 90 C90 60 140 60 140 90 C140 98 90 98 90 90 Z" fill="#FB7185" stroke="#1E293B" stroke-width="3" />
+              <circle cx="102" cy="80" r="3.5" fill="#FDA4AF" />
+              <circle cx="128" cy="80" r="3.5" fill="#FDA4AF" />
+              <!-- Tentacles -->
+              <path d="M100 98 Q95 115 100 130" stroke="#E11D48" stroke-width="2.5" fill="none" />
+              <path d="M115 98 Q120 118 112 135" stroke="#E11D48" stroke-width="2.5" fill="none" />
+              <path d="M130 98 Q125 115 130 130" stroke="#E11D48" stroke-width="2.5" fill="none" />
+
+              <!-- Floating Jellyfish 2 (Small Cyan) -->
+              <path d="M50 65 C50 45 85 45 85 65 C85 70 50 70 50 65 Z" fill="#38BDF8" stroke="#1E293B" stroke-width="2.5" />
+              <path d="M58 70 Q55 85 60 98" stroke="#0284C7" stroke-width="2" fill="none" />
+              <path d="M75 70 Q80 85 75 98" stroke="#0284C7" stroke-width="2" fill="none" />
+
+              <!-- Floating Musical/Peaceful Notes -->
+              <text x="155" y="70" font-size="20">🎵</text>
+            </svg>
+          </div>
+
+          <div class="building-meta">
+            <h3 class="building-title">🪼 Cánh Đồng Sứa</h3>
+            <span class="building-category-badge badge-jelly">Thành Tích & Sở Thích</span>
+            <p class="building-snippet">
+              Điểm số GPA 3.51 xuất sắc, đam mê trà đạo Á Đông, dạo phố Chùa Láng, đọc sách và tận hưởng cuộc sống.
+            </p>
+            <button class="building-action-btn">
+              <span>Dạo Cánh Đồng Sứa</span> ➔
+            </button>
+          </div>
+        </div>
+
+        <!-- 6. POST OFFICE (CONTACT & MESSAGE IN A BOTTLE) -->
+        <div class="building-item" onclick="openHouse('post')">
+          <span class="building-tag">Conch Pier</span>
+          <span class="building-badge-enter">Gửi Thư 📮</span>
+          
+          <div class="building-graphic-box">
+            <!-- Custom Vector Sea Mailbox / Post Office -->
+            <svg viewBox="0 0 200 240">
+              <!-- Wooden Pier Planks -->
+              <rect x="25" y="215" width="150" height="15" fill="#B45309" stroke="#1E293B" stroke-width="3" />
+
+              <!-- Postbox Stand Post -->
+              <rect x="92" y="145" width="16" height="72" fill="#D97706" stroke="#1E293B" stroke-width="3" />
+
+              <!-- Maritime Mailbox Body -->
+              <path d="M60 145 L60 95 C60 70 140 70 140 95 L140 145 Z" fill="#0284C7" stroke="#1E293B" stroke-width="4" />
+              <path d="M65 140 L65 95 C65 75 135 75 135 95 L135 140 Z" fill="#38BDF8" />
+
+              <!-- Anchor Emblem on Mailbox -->
+              <circle cx="100" cy="105" r="6" fill="none" stroke="#FEF08A" stroke-width="3" />
+              <line x1="100" y1="111" x2="100" y2="128" stroke="#FEF08A" stroke-width="3" />
+              <line x1="90" y1="117" x2="110" y2="117" stroke="#FEF08A" stroke-width="3" />
+              <path d="M88 123 Q100 134 112 123" fill="none" stroke="#FEF08A" stroke-width="3" />
+
+              <!-- Mail Slot -->
+              <rect x="75" y="85" width="50" height="7" rx="3" fill="#1E293B" />
+
+              <!-- Red Mail Flag Raised -->
+              <rect x="140" y="105" width="6" height="30" fill="#94A3B8" stroke="#1E293B" stroke-width="2" />
+              <path d="M146 105 L175 105 L165 92 L175 80 L146 80 Z" fill="#EF4444" stroke="#1E293B" stroke-width="2" />
+
+              <!-- Floating Glass Bottle with message -->
+              <ellipse cx="40" cy="175" rx="10" ry="18" fill="rgba(186, 230, 253, 0.7)" stroke="#1E293B" stroke-width="2" transform="rotate(20 40 175)" />
+              <rect x="36" y="150" width="8" height="10" fill="#D97706" stroke="#1E293B" stroke-width="1.5" transform="rotate(20 40 175)" />
+            </svg>
+          </div>
+
+          <div class="building-meta">
+            <h3 class="building-title">📮 Bưu Điện Bikini Bottom</h3>
+            <span class="building-category-badge badge-post">Liên Hệ & Thư Vào Chai</span>
+            <p class="building-snippet">
+              Gửi tin nhắn trong chai, kết nối trực tiếp qua hotline Hải Âu, email hoặc hẹn gặp tại Chùa Láng Hà Nội.
+            </p>
+            <button class="building-action-btn">
+              <span>Gửi Thư Vào Chai</span> ➔
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Seabed Flora Decorations -->
+    <div class="seabed-decorations">
+      <svg class="kelp-stem" width="50" height="85" viewBox="0 0 50 90">
+        <path d="M25 90 Q15 65 30 45 Q40 25 25 0" fill="none" stroke="#059669" stroke-width="8" stroke-linecap="round" />
+        <ellipse cx="20" cy="55" rx="10" ry="5" fill="#10B981" />
+        <ellipse cx="32" cy="30" rx="10" ry="5" fill="#10B981" />
+      </svg>
+      <svg width="45" height="40" viewBox="0 0 45 40">
+        <path d="M5 40 C5 25 15 20 22 10 C30 20 40 25 40 40 Z" fill="#FB7185" stroke="#1E293B" stroke-width="2.5" />
+      </svg>
+      <svg class="kelp-stem" width="55" height="90" viewBox="0 0 50 90" style="animation-delay: 1.2s;">
+        <path d="M25 90 Q35 65 20 45 Q10 25 25 0" fill="none" stroke="#059669" stroke-width="8" stroke-linecap="round" />
+        <ellipse cx="30" cy="55" rx="10" ry="5" fill="#34D399" />
+        <ellipse cx="18" cy="30" rx="10" ry="5" fill="#34D399" />
+      </svg>
+    </div>
+
+  </main>
+
+  <!-- ========================================================
+       DETAIL INTERIOR VIEW (ACTIVATED WHEN A HOUSE IS CLICKED)
+       ======================================================== -->
+  <div id="interiorView">
+    
+    <!-- Top Action Nav: Back to Town + Quick House Switcher -->
+    <div class="interior-nav-bar">
+      <button class="btn-back-to-town" onclick="closeHouse()">
+        <span>⬅ 🏠</span>
+        <span>Quay Lại Khu Phố</span>
+      </button>
+
+      <!-- Fast tabs between houses -->
+      <div class="interior-fast-tabs">
+        <button class="tab-btn" id="tab-pineapple" onclick="openHouse('pineapple')">🍍 Nhà Dứa</button>
+        <button class="tab-btn" id="tab-squidward" onclick="openHouse('squidward')">🗿 Nhà Squidward</button>
+        <button class="tab-btn" id="tab-patrick" onclick="openHouse('patrick')">🪨 Nhà Patrick</button>
+        <button class="tab-btn" id="tab-krusty" onclick="openHouse('krusty')">🦀 Krusty Krab</button>
+        <button class="tab-btn" id="tab-jellyfish" onclick="openHouse('jellyfish')">🪼 Cánh Đồng Sứa</button>
+        <button class="tab-btn" id="tab-post" onclick="openHouse('post')">📮 Bưu Điện</button>
+      </div>
+    </div>
+
+    <!-- Main Content Container with Dynamic Views -->
+    <div class="interior-panel">
+
+      <!-- ==================== HOUSE 1: PINEAPPLE (ABOUT ME) ==================== -->
+      <div class="house-content" id="content-pineapple" style="display: none;">
+        <div class="interior-header">
+          <div class="interior-header-left">
+            <div class="interior-header-icon">🍍</div>
+            <div class="interior-header-titles">
+              <h2>Bên Trong Nhà Dứa • 124 Conch Street</h2>
+              <p>Giới thiệu bản thân • Phong cách SpongeBob "I'm Ready!" • Thẻ Cư Dân Đại Dương</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="pineapple-grid">
+          <!-- Real Avatar Frame with SpongeBob Styling -->
+          <div class="sb-photo-frame-wrap">
+            <div class="sb-avatar-container">
+              <img src="assets/images/avatar.jpg" alt="Nguyễn Hà Linh Avatar" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'><circle cx=\'50\' cy=\'50\' r=\'50\' fill=\'%23FED836\'/><text x=\'50\' y=\'65\' font-size=\'45\' text-anchor=\'middle\'>🧽</text></svg>'">
+            </div>
+            <div class="avatar-caption-box">
+              <h3>Nguyễn Hà Linh</h3>
+              <p>阮荷泠 • Ready for New Challenges!</p>
+            </div>
+          </div>
+
+          <!-- Bio & Story -->
+          <div class="pineapple-bio-box">
+            <div class="bio-quote-bubble">
+              <h4><span>🧽</span> "I'm ready, I'm ready, I'm ready to learn & create value!"</h4>
+              <p>
+                Xin chào! Mình là <strong>Nguyễn Hà Linh</strong>, sinh viên năm 3 chuyên ngành <strong>Tiếng Trung Thương Mại</strong> tại <strong>Trường Đại học Ngoại Thương (FTU)</strong>. 
+              </p>
+              <p style="margin-top: 8px;">
+                Giống như chú bọt biển SpongeBob luôn thức dậy mỗi sáng với tinh thần lạc quan, cẩn trọng và lòng nhiệt thành, mình luôn mang trọn nguồn năng lượng tích cực vào từng mục tiêu: từ việc tìm kiếm nhà cung cấp chất lượng cao tại Trung Quốc, đàm phán hợp đồng ngoại thương cho đến kết nối con người qua ngôn ngữ và văn hóa.
+              </p>
+            </div>
+
+            <!-- Citizen ID / Passport Card -->
+            <div class="resident-passport-card">
+              <div class="passport-header">
+                <span style="font-weight: 800; font-size: 0.9rem; color: #78350F;">🪸 BIKINI BOTTOM RESIDENT PASSPORT</span>
+                <span style="font-weight: 800; font-size: 0.8rem; color: #DC2626;">VERIFIED #2006-HL</span>
+              </div>
+              <div class="passport-grid">
+                <div class="pass-item">
+                  <div class="pass-label">Họ & Tên</div>
+                  <div class="pass-val">Nguyễn Hà Linh (阮荷泠)</div>
+                </div>
+                <div class="pass-item">
+                  <div class="pass-label">Trường Theo Học</div>
+                  <div class="pass-val">ĐH Ngoại Thương (FTU)</div>
+                </div>
+                <div class="pass-item">
+                  <div class="pass-label">Điểm Tích Lũy</div>
+                  <div class="pass-val" style="color: #DC2626; font-weight: 800;">GPA 3.51 / 4.0</div>
+                </div>
+                <div class="pass-item">
+                  <div class="pass-label">Trình Độ Ngoại Ngữ</div>
+                  <div class="pass-val">Tiếng Trung HSK5 & Anh B2</div>
+                </div>
+                <div class="pass-item" style="grid-column: 1 / -1;">
+                  <div class="pass-label">Tọa Độ Cư Trú</div>
+                  <div class="pass-val">Chùa Láng, Q. Đống Đa, Hà Nội</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Secret Formula -->
+            <div class="patty-formula-inline">
+              <h4 style="font-size: 1.05rem; color: #92400E; margin-bottom: 4px;">
+                🍔 Công Thức Bí Mật Krabby Patty Của Hà Linh:
+              </h4>
+              <div class="formula-row">
+                <div class="formula-pill">
+                  <div class="formula-num">40%</div>
+                  <div class="formula-title">Cần Cù & Tỉ Mỉ</div>
+                </div>
+                <div class="formula-pill">
+                  <div class="formula-num">30%</div>
+                  <div class="formula-title">Đa Ngữ (HSK5/B2)</div>
+                </div>
+                <div class="formula-pill">
+                  <div class="formula-num">20%</div>
+                  <div class="formula-title">Nhạy Bén Mua Hàng</div>
+                </div>
+                <div class="formula-pill">
+                  <div class="formula-num">10%</div>
+                  <div class="formula-title">Nụ Cười Lạc Quan</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== HOUSE 2: SQUIDWARD (EDUCATION & EXPERIENCE) ==================== -->
+      <div class="house-content" id="content-squidward" style="display: none;">
+        <div class="interior-header">
+          <div class="interior-header-left">
+            <div class="interior-header-icon">🗿</div>
+            <div class="interior-header-titles">
+              <h2>Bên Trong Nhà Squidward • 122 Conch Street</h2>
+              <p>Phòng Nghiên Cứu & Trưng Bày: Học Vấn Vững Vàng • Kinh Nghiệm Thực Chiến</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="edu-exp-timeline">
+          <!-- Work Experience: Alpha Allin -->
+          <div class="moai-card">
+            <div class="moai-card-header">
+              <div class="moai-card-title">
+                <h3>Purchasing Support Intern</h3>
+                <p>Công ty TNHH Alpha Allin</p>
+              </div>
+              <span class="moai-time-pill">Kinh nghiệm thực chiến</span>
+            </div>
+            <ul class="moai-bullet-list">
+              <li>Tìm kiếm và sàng lọc hơn <strong>100 nhà cung cấp Trung Quốc mỗi tuần</strong> qua các nền tảng thương mại điện tử trực tuyến (1688, Taobao, Alibaba...); thu thập thông tin về sản phẩm, năng lực cung ứng, mức giá, MOQ và khả năng tùy chỉnh.</li>
+              <li>Chủ động liên hệ, trao đổi và follow-up nhà cung cấp <strong>hoàn toàn bằng tiếng Trung</strong> nhằm xác nhận thông tin sản phẩm, báo giá, thời gian cung ứng và các yêu cầu liên quan.</li>
+              <li>Hỗ trợ đánh giá, so sánh nhà cung cấp dựa trên các tiêu chí: giá thành, MOQ, khả năng custom, tốc độ phản hồi và mức độ phù hợp với yêu cầu sản phẩm.</li>
+              <li>Phối hợp với bộ phận phụ trách và bộ phận Logistics để cập nhật thông tin đơn hàng, xử lý các vấn đề phát sinh trong quá trình vận chuyển hàng hóa.</li>
+              <li>Quản lý và hệ thống hóa dữ liệu mua hàng trên sheet nội bộ, ghi chú và tiến độ trao đổi; đảm bảo dữ liệu đầy đủ, dễ tra cứu và thuận tiện.</li>
+            </ul>
+            <div class="badge-wrap">
+              <span class="skill-chip">Sourcing Trung Quốc</span>
+              <span class="skill-chip">Đàm phán MOQ & Giá</span>
+              <span class="skill-chip">Tiếng Trung Thương Mại</span>
+              <span class="skill-chip">Quản lý Dữ liệu Sheets</span>
+              <span class="skill-chip">Theo dõi Logistics</span>
+            </div>
+          </div>
+
+          <!-- Formal Education: FTU -->
+          <div class="moai-card">
+            <div class="moai-card-header">
+              <div class="moai-card-title">
+                <h3>Đại Học Ngoại Thương (FTU)</h3>
+                <p>Chuyên ngành Tiếng Trung Thương Mại</p>
+              </div>
+              <span class="moai-time-pill">Sinh viên năm 3 (Hiện tại)</span>
+            </div>
+            <ul class="moai-bullet-list">
+              <li><strong>Điểm trung bình tích lũy GPA: 3.51 / 4.0</strong> (Xếp loại Giỏi).</li>
+              <li>Các môn học bổ trợ nền tảng chuyên sâu: <em>Giao dịch thương mại quốc tế, Chính sách thương mại quốc tế, Logistics và vận tải quốc tế, Pháp luật trong kinh doanh quốc tế, Thương mại quốc tế</em>.</li>
+              <li>Nền tảng phổ thông: Tốt nghiệp <strong>THPT Chuyên Biên Hòa Hà Nam</strong>.</li>
+            </ul>
+            <div class="badge-wrap">
+              <span class="skill-chip">ĐH Ngoại Thương</span>
+              <span class="skill-chip">GPA 3.51/4.0</span>
+              <span class="skill-chip">Thương Mại Quốc Tế</span>
+              <span class="skill-chip">Logistics & Vận Tải</span>
+              <span class="skill-chip">Chuyên Biên Hòa</span>
+            </div>
+          </div>
+
+          <!-- Certificate: Lê Ánh -->
+          <div class="moai-card">
+            <div class="moai-card-header">
+              <div class="moai-card-title">
+                <h3>Chứng Chỉ Nghiệp Vụ XNK Thực Tế</h3>
+                <p>Trung tâm Đào tạo Xuất nhập khẩu Lê Ánh</p>
+              </div>
+              <span class="moai-time-pill">Năm 2026</span>
+            </div>
+            <ul class="moai-bullet-list">
+              <li>Được đào tạo bài bản và thực hành trực tiếp: <em>Tìm kiếm khách hàng & NCC nước ngoài, Quy trình xuất nhập khẩu, Hợp đồng ngoại thương, Thanh toán quốc tế, Incoterms 2020, Logistics quốc tế</em>.</li>
+              <li>Nắm vững quy tắc áp dụng Incoterms trong phân chia chi phí và rủi ro mua bán quốc tế.</li>
+            </ul>
+            <div class="badge-wrap">
+              <span class="skill-chip">Incoterms 2020</span>
+              <span class="skill-chip">Hợp Đồng Ngoại Thương</span>
+              <span class="skill-chip">Thanh Toán Quốc Tế</span>
+              <span class="skill-chip">Logistics Thực Tế</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== HOUSE 3: PATRICK (SKILLS & POWERS) ==================== -->
+      <div class="house-content" id="content-patrick" style="display: none;">
+        <div class="interior-header">
+          <div class="interior-header-left">
+            <div class="interior-header-icon">🪨</div>
+            <div class="interior-header-titles">
+              <h2>Bên Trong Nhà Patrick • 120 Conch Street</h2>
+              <p>Kho Siêu Năng Lực San Hô: Ngôn Ngữ • Sourcing • Kỹ Năng Mềm</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-section-grid">
+          <!-- Language Skills -->
+          <div class="patrick-skill-box">
+            <h4><span>🗣️</span> Năng Lực Ngoại Ngữ</h4>
+            
+            <div class="skill-metric-item">
+              <div class="metric-labels">
+                <span>Tiếng Trung (HSK5 / Thương mại)</span>
+                <span style="color: #D97706;">Thành Thạo</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill fill-sb-yellow" style="width: 90%;"></div>
+              </div>
+              <p style="font-size: 0.8rem; color: #64748B; margin-top: 4px;">Giao tiếp trôi chảy, đàm phán giá & trao đổi trực tiếp với NCC Trung Quốc</p>
+            </div>
+
+            <div class="skill-metric-item">
+              <div class="metric-labels">
+                <span>Tiếng Anh (B2)</span>
+                <span style="color: #0284C7;">Tự Tin</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill fill-sb-blue" style="width: 75%;"></div>
+              </div>
+              <p style="font-size: 0.8rem; color: #64748B; margin-top: 4px;">Đọc hiểu hợp đồng thương mại, Incoterms, email giao dịch quốc tế</p>
+            </div>
+
+            <div class="skill-metric-item">
+              <div class="metric-labels">
+                <span>Tiếng Việt (Bản ngữ)</span>
+                <span style="color: #059669;">Bản Địa (100%)</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill fill-sb-green" style="width: 100%;"></div>
+              </div>
+              <p style="font-size: 0.8rem; color: #64748B; margin-top: 4px;">Diễn đạt lưu loát, truyền tải cảm hứng và viết nội dung trau chuốt</p>
+            </div>
+          </div>
+
+          <!-- Sourcing & Trade Skills -->
+          <div class="patrick-skill-box">
+            <h4><span>🚢</span> Nghiệp Vụ Thu Mua & XNK</h4>
+
+            <div class="skill-metric-item">
+              <div class="metric-labels">
+                <span>Sourcing Nguồn Hàng Trung Quốc</span>
+                <span style="color: #D97706;">92%</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill fill-sb-yellow" style="width: 92%;"></div>
+              </div>
+              <p style="font-size: 0.8rem; color: #64748B; margin-top: 4px;">Tìm kiếm trên 1688, Taobao, Alibaba, liên hệ trực tiếp xưởng nội địa</p>
+            </div>
+
+            <div class="skill-metric-item">
+              <div class="metric-labels">
+                <span>Thẩm Định NCC & Đàm Phán MOQ</span>
+                <span style="color: #FB7185;">85%</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill fill-sb-pink" style="width: 85%;"></div>
+              </div>
+              <p style="font-size: 0.8rem; color: #64748B; margin-top: 4px;">So sánh bảng giá, khả năng custom sản phẩm và đánh giá độ uy tín xưởng</p>
+            </div>
+
+            <div class="skill-metric-item">
+              <div class="metric-labels">
+                <span>Incoterms 2020 & Logistics</span>
+                <span style="color: #0284C7;">88%</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill fill-sb-blue" style="width: 88%;"></div>
+              </div>
+              <p style="font-size: 0.8rem; color: #64748B; margin-top: 4px;">Quy trình xuất nhập khẩu, vận chuyển đường biển và thủ tục giao nhận</p>
+            </div>
+          </div>
+
+          <!-- Soft Skills & Productivity -->
+          <div class="patrick-skill-box">
+            <h4><span>🤝</span> Kỹ Năng Mềm & Đồng Đội</h4>
+
+            <div class="skill-metric-item">
+              <div class="metric-labels">
+                <span>Giao Tiếp Liên Văn Hóa</span>
+                <span style="color: #059669;">95%</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill fill-sb-green" style="width: 95%;"></div>
+              </div>
+              <p style="font-size: 0.8rem; color: #64748B; margin-top: 4px;">Kinh nghiệm trực tiếp với học viên và đối tác người Trung Quốc</p>
+            </div>
+
+            <div class="skill-metric-item">
+              <div class="metric-labels">
+                <span>Quản Lý Dữ Liệu (Sheets / Excel)</span>
+                <span style="color: #D97706;">88%</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill fill-sb-yellow" style="width: 88%;"></div>
+              </div>
+              <p style="font-size: 0.8rem; color: #64748B; margin-top: 4px;">Hệ thống hóa dữ liệu mua hàng, tra cứu rõ ràng, theo dõi tiến độ</p>
+            </div>
+
+            <div class="skill-metric-item">
+              <div class="metric-labels">
+                <span>Tinh Thần Đồng Đội & Sáng Tạo</span>
+                <span style="color: #FB7185;">90%</span>
+              </div>
+              <div class="metric-bar-bg">
+                <div class="metric-bar-fill fill-sb-pink" style="width: 90%;"></div>
+              </div>
+              <p style="font-size: 0.8rem; color: #64748B; margin-top: 4px;">Tích cực, lắng nghe chân thành như Patrick, truyền thông sáng tạo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== HOUSE 4: KRUSTY KRAB (PROJECTS & PRACTICAL WORK) ==================== -->
+      <div class="house-content" id="content-krusty" style="display: none;">
+        <div class="interior-header">
+          <div class="interior-header-left">
+            <div class="interior-header-icon">🦀</div>
+            <div class="interior-header-titles">
+              <h2>Bên Trong Nhà Hàng Krusty Krab</h2>
+              <p>Thực Đơn Dự Án Thực Chiến: Sourcing Chuỗi Cung Ứng • Dự Án Xã Hội & Ngoại Khóa</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="krab-menu-board">
+          <h3>🍔 BẢNG THỰC ĐƠN DỰ ÁN CỦA MR. KRABS & HÀ LINH</h3>
+          <p style="color: #78350F; font-size: 0.95rem; margin-top: 4px;">Mỗi dự án là một "món ăn đặc biệt" được chế biến bằng 100% sự tận tâm và chuyên môn vững chắc</p>
+        </div>
+
+        <div class="project-cards-grid">
+          <!-- Project 1: Sourcing Alpha Allin -->
+          <div class="project-order-card">
+            <div>
+              <div class="project-order-header">
+                <div class="order-icon">📦</div>
+                <div class="order-title">
+                  <h4>Chiến Dịch Sourcing 100+ Xưởng TQ</h4>
+                  <p>Công ty TNHH Alpha Allin</p>
+                </div>
+              </div>
+              <p class="order-desc">
+                Thực hiện khảo sát và lập danh bạ nhà cung cấp Trung Quốc mỗi tuần qua 1688, Taobao, Alibaba. Trực tiếp trao đổi với chủ xưởng bằng tiếng Trung, đàm phán MOQ và báo giá, phối hợp với logistics cập nhật tiến độ vận chuyển hàng hóa quốc tế.
+              </p>
+            </div>
+            <div class="badge-wrap">
+              <span class="skill-chip">100+ NCC/Tuần</span>
+              <span class="skill-chip">Tiếng Trung Thương Mại</span>
+              <span class="skill-chip">Tối Ưu Ngân Sách</span>
+            </div>
+          </div>
+
+          <!-- Project 2: Vietnamese Tutor -->
+          <div class="project-order-card">
+            <div>
+              <div class="project-order-header">
+                <div class="order-icon">🌏</div>
+                <div class="order-title">
+                  <h4>Gia Sư Tiếng Việt Cho Học Viên TQ</h4>
+                  <p>Cầu Nối Ngôn Ngữ Xuyên Biên Giới (2025 – Nay)</p>
+                </div>
+              </div>
+              <p class="order-desc">
+                Giảng dạy tiếng Việt giao tiếp và thương mại cho người đi làm Trung Quốc. Toàn bộ quá trình giảng dạy và trao đổi đều sử dụng tiếng Trung, rèn luyện kỹ năng giải quyết tình huống giao tiếp và thấu hiểu văn hóa kinh doanh Á Đông.
+              </p>
+            </div>
+            <div class="badge-wrap">
+              <span class="skill-chip">100% Tiếng Trung</span>
+              <span class="skill-chip">Giao Tiếp Liên Văn Hóa</span>
+              <span class="skill-chip">Sư Phạm Thương Mại</span>
+            </div>
+          </div>
+
+          <!-- Project 3: Startup Club Media -->
+          <div class="project-order-card">
+            <div>
+              <div class="project-order-header">
+                <div class="order-icon">📢</div>
+                <div class="order-title">
+                  <h4>Ban Truyền Thông CLB Khởi Nghiệp</h4>
+                  <p>Trường Đại Học Luật Hà Nội (2025)</p>
+                </div>
+              </div>
+              <p class="order-desc">
+                Phụ trách tổng hợp thông tin, viết bài và hỗ trợ công tác truyền thông cho các sự kiện khởi nghiệp đổi mới sáng tạo. Rèn luyện kỹ năng làm việc nhóm, điều phối nội dung và linh hoạt trước các yêu cầu của sự kiện.
+              </p>
+            </div>
+            <div class="badge-wrap">
+              <span class="skill-chip">Sáng Tạo Nội Dung</span>
+              <span class="skill-chip">Teamwork Phối Hợp</span>
+              <span class="skill-chip">Truyền Thông Sự Kiện</span>
+            </div>
+          </div>
+
+          <!-- Project 4: CyberKid -->
+          <div class="project-order-card">
+            <div>
+              <div class="project-order-header">
+                <div class="order-icon">🛡️</div>
+                <div class="order-title">
+                  <h4>Dự Án An Toàn Số Trẻ Em</h4>
+                  <p>CyberSchool x CyberKid Vietnam (2024)</p>
+                </div>
+              </div>
+              <p class="order-desc">
+                Tham gia hỗ trợ vận hành các lớp học giáo dục cộng đồng, nâng cao nhận thức bảo vệ trẻ em trên không gian mạng và quản lý dữ liệu thông tin lớp học.
+              </p>
+            </div>
+            <div class="badge-wrap">
+              <span class="skill-chip">Dự Án Cộng Đồng</span>
+              <span class="skill-chip">Vận Hành Lớp Học</span>
+              <span class="skill-chip">Quản Trị Thông Tin</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== HOUSE 5: JELLYFISH (ACHIEVEMENTS & HOBBIES) ==================== -->
+      <div class="house-content" id="content-jellyfish" style="display: none;">
+        <div class="interior-header">
+          <div class="interior-header-left">
+            <div class="interior-header-icon">🪼</div>
+            <div class="interior-header-titles">
+              <h2>Cánh Đồng Sứa Bikini Bottom</h2>
+              <p>Nơi Tỏa Sáng Thành Tích • Những Nốt Nhạc Đời Thường & Niềm Vui Sống</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic Achievements Highlights -->
+        <h3 class="comic-title" style="font-size: 1.35rem; color: #6B21A8; margin-bottom: 14px;">
+          ✨ Cột Mốc Thành Tựu Nổi Bật
+        </h3>
+        <div class="jelly-achieve-grid">
+          <div class="jelly-pill-card">
+            <div class="jelly-pill-icon">🎓</div>
+            <div class="jelly-pill-num">3.51 / 4.0</div>
+            <div class="jelly-pill-label">GPA ĐH Ngoại Thương</div>
+            <div class="jelly-pill-sub">Xếp loại Giỏi • Tiếng Trung Thương Mại</div>
+          </div>
+
+          <div class="jelly-pill-card">
+            <div class="jelly-pill-icon">📜</div>
+            <div class="jelly-pill-num">HSK5</div>
+            <div class="jelly-pill-label">Chứng Chỉ Tiếng Trung</div>
+            <div class="jelly-pill-sub">Thành thạo đàm phán & dịch thuật thương mại</div>
+          </div>
+
+          <div class="jelly-pill-card">
+            <div class="jelly-pill-icon">🚢</div>
+            <div class="jelly-pill-num">2026</div>
+            <div class="jelly-pill-label">Chứng Chỉ XNK Lê Ánh</div>
+            <div class="jelly-pill-sub">Nghiệp vụ thực tế Incoterms & Thanh toán quốc tế</div>
+          </div>
+
+          <div class="jelly-pill-card">
+            <div class="jelly-pill-icon">🏫</div>
+            <div class="jelly-pill-num">Chuyên</div>
+            <div class="jelly-pill-label">THPT Chuyên Biên Hòa</div>
+            <div class="jelly-pill-sub">Hà Nam • Nền tảng học thuật vững vàng</div>
+          </div>
+        </div>
+
+        <!-- Life Vibes & Hobbies -->
+        <h3 class="comic-title" style="font-size: 1.35rem; color: #6B21A8; margin-bottom: 14px; margin-top: 25px;">
+          🎵 Thế Giới Ngoài Giờ Học Của Hà Linh
+        </h3>
+        <div class="hobbies-band-grid">
+          <div class="hobby-card-item">
+            <div style="font-size: 2.2rem;">🍵</div>
+            <h5>Văn Hóa Á Đông</h5>
+            <p>Yêu thích trà đạo, tìm hiểu lịch sử và sự tinh tế trong lối sống Trung Hoa truyền thống.</p>
+          </div>
+          <div class="hobby-card-item">
+            <div style="font-size: 2.2rem;">📚</div>
+            <h5>Đọc Sách Chuỗi Cung Ứng</h5>
+            <p>Khám phá cách thế giới vận hành hàng hóa qua logistics, thương mại điện tử và tâm lý đối ngoại.</p>
+          </div>
+          <div class="hobby-card-item">
+            <div style="font-size: 2.2rem;">🧋</div>
+            <h5>Trà Sữa & Phố Chùa Láng</h5>
+            <p>Dạo phố ngắm hoàng hôn Hà Nội, nhâm nhi ly trà sữa cùng bạn bè để tái tạo năng lượng.</p>
+          </div>
+          <div class="hobby-card-item">
+            <div style="font-size: 2.2rem;">🎶</div>
+            <h5>Nhạc Acoustic & Hoạt Hình</h5>
+            <p>Xem lại các tập phim SpongeBob để giữ mãi góc nhìn tươi sáng, hồn nhiên trước mọi thử thách.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==================== HOUSE 6: POST OFFICE (CONTACT) ==================== -->
+      <div class="house-content" id="content-post" style="display: none;">
+        <div class="interior-header">
+          <div class="interior-header-left">
+            <div class="interior-header-icon">📮</div>
+            <div class="interior-header-titles">
+              <h2>Bưu Điện Bikini Bottom</h2>
+              <p>Trạm Tiếp Nhận Thông Tin • Gửi Thư Vào Chai Trôi Về Chùa Láng</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="post-office-grid">
+          <!-- Metadata Column -->
+          <div class="post-metadata-col">
+            <h3 class="comic-title" style="font-size: 1.4rem; color: #0F172A;">
+              Kênh Liên Lạc Trực Tiếp 📡
+            </h3>
+            <p style="color: #64748B; font-size: 0.95rem;">
+              Mình luôn sẵn sàng đón nhận các cơ hội thực tập, hợp tác thu mua (Purchasing), xuất nhập khẩu hoặc các dự án giao lưu văn hóa song phương.
+            </p>
+
+            <div class="post-contact-bubble">
+              <div class="post-bubble-icon">📍</div>
+              <div>
+                <div style="font-size: 0.78rem; font-weight: 800; color: #64748B; text-transform: uppercase;">Địa bàn cư trú</div>
+                <div style="font-size: 1rem; font-weight: 800; color: #0F172A;">Chùa Láng, Q. Đống Đa, Hà Nội</div>
+              </div>
+            </div>
+
+            <div class="post-contact-bubble">
+              <div class="post-bubble-icon">📞</div>
+              <div>
+                <div style="font-size: 0.78rem; font-weight: 800; color: #64748B; text-transform: uppercase;">Hotline Hải Âu</div>
+                <div style="font-size: 1.05rem; font-weight: 800; color: #0F172A;">0834 595 032</div>
+              </div>
+            </div>
+
+            <div class="post-contact-bubble">
+              <div class="post-bubble-icon">✉️</div>
+              <div>
+                <div style="font-size: 0.78rem; font-weight: 800; color: #64748B; text-transform: uppercase;">Hòm Thư Điện Tử</div>
+                <div style="font-size: 0.98rem; font-weight: 800; color: #0F172A; word-break: break-all;">nyuenhalinh2006@gmail.com</div>
+              </div>
+            </div>
+
+            <div class="post-contact-bubble">
+              <div class="post-bubble-icon">🏫</div>
+              <div>
+                <div style="font-size: 0.78rem; font-weight: 800; color: #64748B; text-transform: uppercase;">Trường Đại Học</div>
+                <div style="font-size: 0.98rem; font-weight: 800; color: #0F172A;">Đại học Ngoại thương (FTU)</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Message in a Bottle Form -->
+          <form class="post-bottle-form" id="postOfficeForm" onsubmit="handleSendBottleMessage(event)">
+            <h4 class="comic-title" style="font-size: 1.25rem; color: #78350F; margin-bottom: 12px; display: flex; align-items: center; gap: 8px;">
+              <span>🍾</span> Thả Thư Cuộn Vào Chai
+            </h4>
+
+            <div class="bottle-field">
+              <label for="bottleSender">Tên của bạn hoặc quý công ty / đơn vị:</label>
+              <input type="text" id="bottleSender" placeholder="VD: Thuyền trưởng Eugene Krabs / Nhà tuyển dụng..." required>
+            </div>
+
+            <div class="bottle-field">
+              <label for="bottleEmail">Email phản hồi của bạn:</label>
+              <input type="email" id="bottleEmail" placeholder="your-email@bikini-bottom.com" required>
+            </div>
+
+            <div class="bottle-field">
+              <label for="bottleMsg">Nội dung thư muốn gửi gắm:</label>
+              <textarea id="bottleMsg" rows="4" placeholder="Xin chào Hà Linh, mình rất ấn tượng với năng lực tiếng Trung HSK5 và kinh nghiệm Sourcing của bạn..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn-send-bottle">
+              <span>🌊 Niêm Phong & Thả Ra Biển</span>
+            </button>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Audio Element (Tries to load local file, with graceful synthesizer fallback) -->
+  <audio id="localAudioPlayer" src="assets/audio/spongebob_theme.mp3" loop preload="none"></audio>
+
+  <!-- Town Footer -->
+  <footer class="town-footer">
+    <p>© 2026 Bikini Bottom Neighborhood Portfolio • <strong>Nguyễn Hà Linh (阮荷泠)</strong></p>
+    <div class="footer-stamp">
+      🍍 "Remember: The secret formula is always Passion & Hard Work!"
+    </div>
+  </footer>
+
+  <!-- ========================================================
+       JAVASCRIPT: TOWN TRANSITIONS, SOUND ENGINE, INTERACTIONS
+       ======================================================== -->
+  <script>
+    // Audio & State
+    let isMusicPlaying = false;
+    let soundFxEnabled = true;
+    let audioCtx = null;
+    let synthLoopTimer = null;
+    const localAudio = document.getElementById('localAudioPlayer');
+
+    // Web Audio API Context
+    function getAudioContext() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    // Bubble Pop Sound Effect
+    function playPopFx() {
+      if (!soundFxEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        const freq = 420 + Math.random() * 260;
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(freq, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(freq * 2.2, ctx.currentTime + 0.08);
+
+        gain.gain.setValueAtTime(0.28, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.08);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        osc.stop(ctx.currentTime + 0.09);
+      } catch (e) {}
+    }
+
+    // Door Open / Whoosh Effect
+    function playWhooshFx() {
+      if (!soundFxEnabled) return;
+      try {
+        const ctx = getAudioContext();
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(180, ctx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(540, ctx.currentTime + 0.2);
+
+        gain.gain.setValueAtTime(0.2, ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.22);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start();
+        osc.stop(ctx.currentTime + 0.23);
+      } catch (e) {}
+    }
+
+    // High Fidelity Hawaiian Ukulele & Breeze Synthesizer (Fallback when no mp3)
+    const HAWAIIAN_CHORDS = [
+      [261.63, 329.63, 392.00], // C major (C4, E4, G4)
+      [246.94, 293.66, 349.23], // G7 chord (B3, D4, F4)
+      [261.63, 349.23, 440.00], // F major (C4, F4, A4)
+      [261.63, 329.63, 392.00]  // C major
+    ];
+    let chordIdx = 0;
+
+    function playSynthUkuleleStrum() {
+      if (!isMusicPlaying) return;
+      try {
+        const ctx = getAudioContext();
+        const vol = parseFloat(document.getElementById('volumeSlider').value);
+        const chord = HAWAIIAN_CHORDS[chordIdx % HAWAIIAN_CHORDS.length];
+        chordIdx++;
+
+        chord.forEach((freq, i) => {
+          setTimeout(() => {
+            if (!isMusicPlaying) return;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+
+            osc.type = 'triangle';
+            osc.frequency.setValueAtTime(freq, ctx.currentTime);
+            osc.frequency.exponentialRampToValueAtTime(freq * 0.98, ctx.currentTime + 0.45);
+
+            gain.gain.setValueAtTime(0.12 * vol, ctx.currentTime);
+            gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.45);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+
+            osc.start();
+            osc.stop(ctx.currentTime + 0.46);
+          }, i * 38);
+        });
+
+        // Loop next strum every 1.4s
+        synthLoopTimer = setTimeout(playSynthUkuleleStrum, 1400);
+      } catch (e) {}
+    }
+
+    // Toggle Background Music
+    function toggleBackgroundMusic() {
+      const btn = document.getElementById('btnAudioToggle');
+      const icon = document.getElementById('audioPlayIcon');
+      const text = document.getElementById('audioPlayText');
+
+      if (!isMusicPlaying) {
+        // Attempt to play local mp3 file first
+        localAudio.volume = parseFloat(document.getElementById('volumeSlider').value);
+        const playPromise = localAudio.play();
+
+        if (playPromise !== undefined) {
+          playPromise.then(() => {
+            // Local mp3 succeeded
+            isMusicPlaying = true;
+            icon.textContent = '⏸️';
+            text.textContent = 'Tạm Dừng';
+            btn.style.background = '#FED836';
+          }).catch(err => {
+            // Fallback to built-in Hawaiian Ukulele synthesizer
+            isMusicPlaying = true;
+            icon.textContent = '⏸️';
+            text.textContent = 'Tạm Dừng';
+            btn.style.background = '#FED836';
+            playSynthUkuleleStrum();
+          });
+        }
+      } else {
+        // Stop music
+        isMusicPlaying = false;
+        localAudio.pause();
+        if (synthLoopTimer) clearTimeout(synthLoopTimer);
+        icon.textContent = '▶️';
+        text.textContent = 'Phát Nhạc';
+        btn.style.background = '#FEF08A';
+      }
+    }
+
+    // Adjust Volume
+    function adjustVolume(val) {
+      localAudio.volume = parseFloat(val);
+    }
+
+    // Toggle Sound FX
+    function toggleSoundFx() {
+      soundFxEnabled = !soundFxEnabled;
+      const icon = document.getElementById('fxIcon');
+      const text = document.getElementById('fxText');
+      const btn = document.getElementById('btnFxToggle');
+
+      if (soundFxEnabled) {
+        icon.textContent = '🫧';
+        text.textContent = 'Âm FX: BẬT';
+        btn.style.background = '#E0F2FE';
+        playPopFx();
+      } else {
+        icon.textContent = '🔇';
+        text.textContent = 'Âm FX: TẮT';
+        btn.style.background = '#F1F5F9';
+      }
+    }
+
+    // ==========================================
+    // TOWN NAVIGATION & MODAL MANAGEMENT
+    // ==========================================
+    const townView = document.getElementById('townView');
+    const interiorView = document.getElementById('interiorView');
+
+    function openHouse(houseId) {
+      playWhooshFx();
+
+      // Hide town view, show interior view
+      townView.style.display = 'none';
+      interiorView.style.display = 'block';
+
+      // Hide all house contents
+      document.querySelectorAll('.house-content').forEach(el => el.style.display = 'none');
+
+      // Deactivate all tabs
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active-tab'));
+
+      // Show selected house content
+      const targetContent = document.getElementById('content-' + houseId);
+      if (targetContent) {
+        targetContent.style.display = 'block';
+      }
+
+      // Activate corresponding tab
+      const targetTab = document.getElementById('tab-' + houseId);
+      if (targetTab) {
+        targetTab.classList.add('active-tab');
+      }
+
+      // Smooth scroll to top of interior
+      window.scrollTo({ top: 70, behavior: 'smooth' });
+    }
+
+    function closeHouse() {
+      playWhooshFx();
+      interiorView.style.display = 'none';
+      townView.style.display = 'block';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    // ==========================================
+    // AMBIENT BUBBLES
+    // ==========================================
+    const bubbleLayer = document.getElementById('bubbleLayer');
+
+    function createAmbientBubble() {
+      const bubble = document.createElement('div');
+      bubble.classList.add('bubble');
+      
+      const size = Math.floor(Math.random() * 40) + 16;
+      const left = Math.random() * 96;
+      const duration = Math.random() * 8 + 9;
+      const delay = Math.random() * 2;
+
+      bubble.style.width = size + 'px';
+      bubble.style.height = size + 'px';
+      bubble.style.left = left + '%';
+      bubble.style.animationDuration = duration + 's';
+      bubble.style.animationDelay = delay + 's';
+
+      bubble.addEventListener('click', () => {
+        playPopFx();
+        bubble.remove();
+        createAmbientBubble();
+      });
+
+      bubbleLayer.appendChild(bubble);
+
+      setTimeout(() => {
+        if (bubble.parentNode) {
+          bubble.remove();
+          createAmbientBubble();
+        }
+      }, (duration + delay) * 1000);
+    }
+
+    // Initialize 16 ambient bubbles
+    for (let i = 0; i < 16; i++) {
+      setTimeout(createAmbientBubble, i * 450);
+    }
+
+    // Click anywhere on body to spawn mini bubbles
+    window.addEventListener('click', (e) => {
+      if (['INPUT', 'TEXTAREA', 'BUTTON', 'A'].includes(e.target.tagName)) return;
+      spawnClickBubble(e.clientX, e.clientY);
+    });
+
+    function spawnClickBubble(x, y) {
+      playPopFx();
+      const mini = document.createElement('div');
+      mini.classList.add('bubble');
+      const size = Math.floor(Math.random() * 22) + 14;
+      mini.style.width = size + 'px';
+      mini.style.height = size + 'px';
+      mini.style.left = (x - size / 2) + 'px';
+      mini.style.top = (y - size / 2) + 'px';
+      mini.style.bottom = 'auto';
+      mini.style.animation = 'floatUpward 3.5s ease-out forwards';
+      bubbleLayer.appendChild(mini);
+
+      setTimeout(() => mini.remove(), 3400);
+    }
+
+    // Message in a Bottle Form Submission
+    function handleSendBottleMessage(e) {
+      e.preventDefault();
+      playPopFx();
+
+      const sender = document.getElementById('bottleSender').value;
+      const email = document.getElementById('bottleEmail').value;
+
+      alert(`🌊 Cảm ơn bạn ${sender}! Bức thư cuộn niêm phong sáp biển đã được thả trôi ra đại dương và đang hướng về Chùa Láng! Hà Linh sẽ phản hồi tới ${email} trong thời gian sớm nhất! 🍍⭐`);
+      document.getElementById('postOfficeForm').reset();
+    }
+  </script>
+</body>
+</html>
